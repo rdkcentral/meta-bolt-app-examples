@@ -11,8 +11,8 @@ section in the [meta-bolt-distro](https://github.com/rdkcentral/meta-bolt-distro
 
 * Download this repository and enter its root directory.
 ```
-git clone https://github.com/rdkcentral/meta-bolt-distro.git
-cd meta-bolt-distro/meta-bolt-app-examples
+git clone https://github.com/rdkcentral/meta-bolt-app-examples.git
+cd meta-bolt-app-examples
 ```
 
 * Setup the build environment.
