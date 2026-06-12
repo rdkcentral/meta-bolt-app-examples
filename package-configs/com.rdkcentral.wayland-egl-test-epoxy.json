@@ -1,0 +1,14 @@
+{
+  "id": "com.rdkcentral.wayland-egl-test-epoxy",
+  "version": "auto",
+  "name": "wayland-egl-test-epoxy",
+  "packageType": "application",
+  "entryPoint": "/usr/bin/wayland-egl-test-epoxy",
+  "dependencies": {
+    "com.rdkcentral.base": "0.2.0"
+  },
+  "permissions": [
+  ],
+  "configuration": {
+  }
+}

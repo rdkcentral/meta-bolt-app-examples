@@ -1,8 +1,9 @@
 
-Copyright YEAR COMPANY_NAME
+Copyright <YEAR> <COPYRIGHT HOLDER>
 Licensed under the MIT License
 
 Some material:
-Copyright YEAR COMPANY_NAME
+Copyright 2025 RDK Management
 Licensed under the Apache License, Version 2.0
 
+Some material is derived from openembedded.org and is licensed in the same manner here (MIT for metadata; source code to match the associated recipe license).

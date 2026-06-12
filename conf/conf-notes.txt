@@ -1,0 +1,7 @@
+
+  bitbake wayland-egl-test-bolt-image             # no multi config
+
+  bitbake mc:arm:wayland-egl-test-bolt-image   \
+          mc:arm64:wayland-egl-test-bolt-image \
+          mc:amd64:wayland-egl-test-bolt-image    # requires multi config
+
