@@ -1,0 +1,6 @@
+{
+  "config": "com.rdkcentral.wayland-egl-test-input-epoxy.json",
+  "bitbake": {
+    "image": "wayland-egl-test-epoxy-bolt-image"
+  }
+}

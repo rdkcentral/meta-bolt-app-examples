@@ -1,0 +1,11 @@
+
+  bitbake wayland-egl-test-bolt-image \
+          wayland-egl-test-epoxy-bolt-image  # no multi config
+
+  bitbake mc:arm:wayland-egl-test-bolt-image \
+          mc:arm64:wayland-egl-test-bolt-image \
+          mc:amd64:wayland-egl-test-bolt-image  \
+          mc:arm:wayland-egl-test-epoxy-bolt-image \
+          mc:arm64:wayland-egl-test-epoxy-bolt-image \
+          mc:amd64:wayland-egl-test-epoxy-bolt-image   # requires multi config
+

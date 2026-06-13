@@ -1,0 +1,11 @@
+<manifest>
+  <remote name="rdkcentral" fetch="https://github.com/rdkcentral/"/>
+
+<!-- revision must be a tag (refs/tags/<tag>) or a commit SHA, never a branch, to keep
+     builds reproducible. For releases, use the distro release tag matching the base
+     layer version the app depends on. During development, a revision of a development
+     version may be used as well. -->
+  <project remote="rdkcentral" name="meta-bolt-distro" upstream="develop" revision="29af90587d5a617240648a769b6f524d41169067" path="bolt"/>
+
+<!-- add other repositories required by your application here -->
+</manifest>
