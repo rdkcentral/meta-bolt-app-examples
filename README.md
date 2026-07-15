@@ -24,14 +24,19 @@ source setup-environment
 ```
 
 bitbake wayland-egl-test-bolt-image \
-        wayland-egl-test-epoxy-bolt-image  # no multi config
+        wayland-egl-test-epoxy-bolt-image \
+        vkmark-bolt-image  # no multi config
 
 bitbake mc:arm:wayland-egl-test-bolt-image \
         mc:arm64:wayland-egl-test-bolt-image \
         mc:amd64:wayland-egl-test-bolt-image  \
         mc:arm:wayland-egl-test-epoxy-bolt-image \
         mc:arm64:wayland-egl-test-epoxy-bolt-image \
-        mc:amd64:wayland-egl-test-epoxy-bolt-image   # requires multi config
+        mc:amd64:wayland-egl-test-epoxy-bolt-image \
+        mc:arm:vkmark-bolt-image \
+        mc:arm64:vkmark-bolt-image \
+        mc:amd64:vkmark-bolt-image
+
 
 ```
 ## Building the example applications as bolt package
@@ -46,6 +51,7 @@ bolt make wayland-egl-test
 bolt make wayland-egl-test-input
 bolt make wayland-egl-test-epoxy
 bolt make wayland-egl-test-input-epoxy
+bolt make vkmark
 ```
 
 ## Running bolt packages on device
@@ -59,10 +65,12 @@ bolt push <remote> com.rdkcentral.wayland-egl-test+0.0.1
 bolt push <remote> com.rdkcentral.wayland-egl-test-input+0.0.1
 bolt push <remote> com.rdkcentral.wayland-egl-test-epoxy+0.0.1
 bolt push <remote> com.rdkcentral.wayland-egl-test-input-epoxy+0.0.1
+bolt push <remote> com.rdkcentral.vkmark+0.1.0
 
 bolt run <remote> com.rdkcentral.wayland-egl-test+0.0.1
 bolt run <remote> com.rdkcentral.wayland-egl-test-input+0.0.1
 bolt run <remote> com.rdkcentral.wayland-egl-test-epoxy+0.0.1
 bolt run <remote> com.rdkcentral.wayland-egl-test-input-epoxy+0.0.1
+bolt run <remote> com.rdkcentral.vkmark+0.1.0
 
 ```
