@@ -1,0 +1,23 @@
+##################################################################
+Date: 2025 May 14
+From: john.blessing@sky.uk
+Source: Comcast
+##################################################################
+
+Index: git/src/vulkan_state.cpp
+===================================================================
+--- git.orig/src/vulkan_state.cpp	2025-03-30 09:47:39.249179576 +0000
++++ git/src/vulkan_state.cpp	2025-03-30 09:44:49.034184090 +0000
+@@ -47,10 +47,10 @@
+     DebugUtilsDispatcher(vk::Instance& instance) :
+         vkCreateDebugUtilsMessengerEXT(
+             PFN_vkCreateDebugUtilsMessengerEXT(
+-                vkGetInstanceProcAddr(instance, "vkCreateDebugUtilsMessengerEXT"))),
++                vkGetInstanceProcAddr(static_cast<VkInstance>(instance), "vkCreateDebugUtilsMessengerEXT"))),
+         vkDestroyDebugUtilsMessengerEXT(
+             PFN_vkDestroyDebugUtilsMessengerEXT(
+-                vkGetInstanceProcAddr(instance, "vkDestroyDebugUtilsMessengerEXT")))
++                vkGetInstanceProcAddr(static_cast<VkInstance>(instance), "vkDestroyDebugUtilsMessengerEXT")))
+     {
+     }
+ 

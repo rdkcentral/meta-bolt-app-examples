@@ -1,0 +1,6 @@
+{
+  "config": "com.rdkcentral.vkmark.json",
+  "bitbake": {
+    "image": "vkmark-bolt-image"
+  }
+}

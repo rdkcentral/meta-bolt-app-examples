@@ -1,0 +1,14 @@
+{
+  "id": "com.rdkcentral.vkmark",
+  "version": "0.1.0",
+  "name": "vkmark",
+  "packageType": "application",
+  "entryPoint": "/usr/bin/vkmark-vulkan-test.sh",
+  "dependencies": {
+    "com.rdkcentral.base": "0.3.0"
+  },
+  "permissions": [
+  ],
+  "configuration": {
+  }
+}

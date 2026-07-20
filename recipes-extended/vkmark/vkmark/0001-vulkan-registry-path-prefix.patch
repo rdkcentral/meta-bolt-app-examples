@@ -1,0 +1,21 @@
+##################################################################
+Date: 2025 May 14
+From: john.blessing@sky.uk
+Source: Comcast
+##################################################################
+
+diff --git a/src/meson.build b/src/meson.build
+index 5c543d6..126a10d 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -1,7 +1,9 @@
+ prog_python = find_program('python3')
+ 
++vulkan_registry_path_prefix = meson.get_cross_property('sys_root', '/') + vulkan_dep.get_pkgconfig_variable('prefix')
++
+ vk_xml = join_paths([
+-    vulkan_dep.get_pkgconfig_variable('prefix'),
++    vulkan_registry_path_prefix,
+     'share', 'vulkan', 'registry',
+     'vk.xml'
+     ])

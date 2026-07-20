@@ -1,0 +1,31 @@
+##################################################################
+Date: 2025 May 14
+From: john.blessing@sky.uk
+Source: Comcast
+##################################################################
+
+Index: git/src/ws/wayland_native_system.cpp
+===================================================================
+--- git.orig/src/ws/wayland_native_system.cpp	2025-03-30 04:23:18.205937597 +0000
++++ git/src/ws/wayland_native_system.cpp	2025-03-17 09:02:56.000000000 +0000
+@@ -236,6 +236,7 @@
+     if (!surface)
+         throw std::runtime_error("Failed to create Wayland surface");
+ 
++#if defined(XDG_WM_BASE_PROTO)
+     if (!xdg_wm_base)
+     {
+         throw std::runtime_error(
+@@ -260,10 +261,11 @@
+ 
+     xdg_toplevel_set_app_id(xdg_toplevel, "com.github.vkmark.vkmark");
+     xdg_toplevel_set_title(xdg_toplevel, "vkmark " VKMARK_VERSION_STR);
++#endif
+ 
+     if (fullscreen_requested())
+     {
+-        xdg_toplevel_set_fullscreen(xdg_toplevel, output);
++//        xdg_toplevel_set_fullscreen(xdg_toplevel, output);
+         vk_extent = vk::Extent2D{
+             static_cast<uint32_t>(output_width),
+             static_cast<uint32_t>(output_height)};
