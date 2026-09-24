@@ -1,0 +1,6 @@
+{
+  "config": "com.rdkcentral.firebolt-egl-test.json",
+  "bitbake": {
+    "image": "firebolt-egl-test-bolt-image"
+  }
+}

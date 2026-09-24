@@ -1,0 +1,22 @@
+{
+  "id": "com.rdkcentral.firebolt-egl-test",
+  "version": "0.1.0",
+  "name": "firebolt-egl-test",
+  "packageType": "application",
+  "entryPoint": "/usr/bin/firebolt-egl-test-app",
+  "dependencies": {
+    "com.rdkcentral.base": "0.3.1"
+  },
+  "permissions": [
+      "urn:rdk:permission:firebolt"
+  ],
+  "configuration": {
+      "urn:rdk:config:env": {
+          "PATTERN_MODE": "DOT",
+          "WIDTH": "1920",
+          "HEIGHT": "1080",
+          "GLLOGLEVEL":"WARN",
+          "APPLOGLEVEL":"WARN"
+      }
+  }
+}
