@@ -1,6 +1,7 @@
 # meta-bolt-app-examples
 
-Bitbake meta layer extending the **bolt** distro with recipes allowing to build OCI image of app examples.
+This repo is part of RDK Firebolt Native App SDK and allows you to build example **bolt** applications.  
+It is a bitbake meta layer extending the **bolt** distro with recipes allowing to build OCI image of app examples.
 
 # Setup and building
 
@@ -14,7 +15,10 @@ section in the [meta-bolt-distro](https://github.com/rdkcentral/meta-bolt-distro
 git clone https://github.com/rdkcentral/meta-bolt-app-examples.git
 cd meta-bolt-app-examples
 ```
-
+* Optionally, prepare the [.env](#env) file using your favorite text editor.
+```
+vi .env
+```
 * Setup the build environment.
 ```
 source setup-environment
@@ -23,12 +27,13 @@ source setup-environment
 * Start building the OCI images for examples.
 ```
 
-bitbake wayland-egl-test-bolt-image \
+bitbake firebolt-egl-test-bolt-image \
+        wayland-egl-test-bolt-image \
         wayland-egl-test-epoxy-bolt-image \
-        vkmark-bolt-image  # no multi config \
-        firebolt-egl-test-bolt-image
+        vkmark-bolt-image  # no multi config 
 
-bitbake mc:arm:wayland-egl-test-bolt-image \
+bitbake mc:arm:firebolt-egl-test-bolt-image \
+        mc:arm:wayland-egl-test-bolt-image \
         mc:arm64:wayland-egl-test-bolt-image \
         mc:amd64:wayland-egl-test-bolt-image  \
         mc:arm:wayland-egl-test-epoxy-bolt-image \
@@ -36,8 +41,7 @@ bitbake mc:arm:wayland-egl-test-bolt-image \
         mc:amd64:wayland-egl-test-epoxy-bolt-image \
         mc:arm:vkmark-bolt-image \
         mc:arm64:vkmark-bolt-image \
-        mc:amd64:vkmark-bolt-image \
-        mc:arm:firebolt-egl-test-bolt-image
+        mc:amd64:vkmark-bolt-image
 
 
 ```
@@ -78,4 +82,19 @@ bolt run <remote> com.rdkcentral.wayland-egl-test-input-epoxy+0.0.1
 bolt run <remote> com.rdkcentral.vkmark+0.1.0
 bolt run <remote> com.rdkcentral.firebolt-egl-test+0.1.0
 
+```
+## .env
+
+The `.env` file, located in the directory from which the `setup-environment` script is sourced, can be used to provide
+additional environment variables to optimize the build process. Currently, the following variables are supported:
+- `BOLT_REPO_INIT_PARAMS` - additional parameters provided to the repo init command
+- `BOLT_REPO_SYNC_PARAMS` - additional parameters provided to the repo sync command
+- `BOLT_DL_DIR` - specifies value for the [DL_DIR](https://docs.yoctoproject.org/ref-manual/variables.html#term-DL_DIR) variable
+- `BOLT_SSTATE_DIR` - specifies value for the [SSTATE_DIR](https://docs.yoctoproject.org/ref-manual/variables.html#term-SSTATE_DIR) variable
+
+An example `.env` file might look like this:
+```
+BOLT_REPO_SYNC_PARAMS="--no-clone-bundle -v -j$(getconf _NPROCESSORS_ONLN)"
+BOLT_DL_DIR=${HOME}/downloads
+BOLT_SSTATE_DIR=${HOME}/sstate-cache
 ```
