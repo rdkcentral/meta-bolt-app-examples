@@ -53,12 +53,12 @@ To create Bolt packages for the examples, ensure that the base package is availa
 Follow the same steps mentioned in the [OCI image building instructions for examples](#OCI-image-building-instructions-for-examples) chapter to setup and build the example applications, but instead of calling `bitbake <target>`, use the [bolt tool](https://github.com/rdkcentral/bolt-tools/tree/main/bolt) to create bolt packages for the applications.
 
 ```
+bolt make firebolt-egl-test
 bolt make wayland-egl-test
 bolt make wayland-egl-test-input
 bolt make wayland-egl-test-epoxy
 bolt make wayland-egl-test-input-epoxy
 bolt make vkmark
-bolt make firebolt-egl-test
 ```
 
 ## Running bolt packages on device
